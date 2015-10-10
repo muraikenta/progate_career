@@ -383,6 +383,10 @@ color: #888;
   background-color: #0dc0c0;
 }
 
+#more-text {
+    display: none;
+}
+
 
 /***** Top content *****/
 
@@ -472,6 +476,10 @@ color: #888;
 .features {
     margin-top: 60px;
     padding-bottom: 10px;
+}
+
+.features h3 {
+    color: #555;
 }
 
 

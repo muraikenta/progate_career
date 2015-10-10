@@ -1,6 +1,17 @@
 
 jQuery(document).ready(function() {
 
+	$("#read-more").click(function(){
+		if ($(this).hasClass("active")) {
+			$("#more-text").fadeOut();
+			$("#read-more").removeClass("active").text("もっと詳しく")
+		} else {
+			$("#more-text").fadeIn();
+			$("#read-more").addClass("active").text("閉じる")
+		};
+	});
+
+
 	//*****  STYLE SWITCHER  *****//
 
 	$(".style1" ).click(function(){
