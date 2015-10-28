@@ -12,7 +12,7 @@ if (user && pass) {
 }
 
 app.use(express.logger('dev'));
-app.use(express.compress());
+// app.use(express.compress());
 app.use(express.static('public'));
 
 app.listen(app.get('port'), function() {
