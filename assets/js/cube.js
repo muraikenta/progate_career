@@ -3,9 +3,9 @@
 
     // init cubeportfolio
     $('#grid-container').cubeportfolio({
-        filters: '#filters-container',
-        loadMore: '#loadMore-container',
-        loadMoreAction: 'click',
+        // filters: '#filters-container',
+        // loadMore: '#loadMore-container',
+        // loadMoreAction: 'click',
         layoutMode: 'grid',
         defaultFilter: '*',
         animationType: 'scaleSides',
@@ -27,26 +27,26 @@
         displayTypeSpeed: 400,
 
         // singlePage popup
-        singlePageDelegate: '.cbp-singlePage',
-        singlePageDeeplinking: true,
-        singlePageStickyNavigation: true,
-        singlePageCounter: '<div class="cbp-popup-singlePage-counter">{{current}} of {{total}}</div>',
+        // singlePageDelegate: '.cbp-singlePage',
+        // singlePageDeeplinking: true,
+        // singlePageStickyNavigation: true,
+        // singlePageCounter: '<div class="cbp-popup-singlePage-counter">{{current}} of {{total}}</div>',
         singlePageCallback: function(url, element) {
             // to update singlePage content use the following method: this.updateSinglePage(yourContent)
-            var t = this;
+            // var t = this;
 
-            $.ajax({
-                    url: url,
-                    type: 'GET',
-                    dataType: 'html',
-                    timeout: 5000
-                })
-                .done(function(result) {
-                    t.updateSinglePage(result);
-                })
-                .fail(function() {
-                    t.updateSinglePage("Error! Please refresh the page!");
-                });
+            // $.ajax({
+            //         url: url,
+            //         type: 'GET',
+            //         dataType: 'html',
+            //         timeout: 5000
+            //     })
+            //     .done(function(result) {
+            //         t.updateSinglePage(result);
+            //     })
+            //     .fail(function() {
+            //         t.updateSinglePage("Error! Please refresh the page!");
+            //     });
         },
     });
 

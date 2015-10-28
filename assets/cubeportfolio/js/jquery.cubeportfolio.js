@@ -1752,58 +1752,58 @@
 
     }
 
-    LoadMore.prototype.click = function() {
-        var t = this,
-            numberOfClicks = 0;
+    // LoadMore.prototype.click = function() {
+    //     var t = this,
+    //         numberOfClicks = 0;
 
-        t.loadMore.on('click.cbp', function(e) {
-            var item = $(this);
+    //     t.loadMore.on('click.cbp', function(e) {
+    //         var item = $(this);
 
-            e.preventDefault();
+    //         e.preventDefault();
 
-            if (item.hasClass('cbp-l-loadMore-stop')) {
-                return;
-            }
+    //         if (item.hasClass('cbp-l-loadMore-stop')) {
+    //             return;
+    //         }
 
-            // set loading status
-            item.addClass('cbp-l-loadMore-loading');
+    //         // set loading status
+    //         item.addClass('cbp-l-loadMore-loading');
 
-            numberOfClicks++;
+    //         numberOfClicks++;
 
-            // perform ajax request
-            $.ajax({
-                url: t.loadMore.attr('href'),
-                type: 'GET',
-                dataType: 'HTML'
-            }).done(function(result) {
-                var items, itemsNext;
+    //         // perform ajax request
+    //         $.ajax({
+    //             url: t.loadMore.attr('href'),
+    //             type: 'GET',
+    //             dataType: 'HTML'
+    //         }).done(function(result) {
+    //             var items, itemsNext;
 
-                // find current container
-                items = $(result).filter(function() {
-                    return $(this).is('div' + '.cbp-loadMore-block' + numberOfClicks);
-                });
+    //             // find current container
+    //             items = $(result).filter(function() {
+    //                 return $(this).is('div' + '.cbp-loadMore-block' + numberOfClicks);
+    //             });
 
-                t.parent.$obj.cubeportfolio('appendItems', items.html(), function() {
+    //             t.parent.$obj.cubeportfolio('appendItems', items.html(), function() {
 
-                    // put the original message back
-                    item.removeClass('cbp-l-loadMore-loading');
+    //                 // put the original message back
+    //                 item.removeClass('cbp-l-loadMore-loading');
 
-                    // check if we have more works
-                    itemsNext = $(result).filter(function() {
-                        return $(this).is('div' + '.cbp-loadMore-block' + (numberOfClicks + 1));
-                    });
+    //                 // check if we have more works
+    //                 itemsNext = $(result).filter(function() {
+    //                     return $(this).is('div' + '.cbp-loadMore-block' + (numberOfClicks + 1));
+    //                 });
 
-                    if (itemsNext.length === 0) {
-                        item.addClass('cbp-l-loadMore-stop');
-                    }
-                });
+    //                 if (itemsNext.length === 0) {
+    //                     item.addClass('cbp-l-loadMore-stop');
+    //                 }
+    //             });
 
-            }).fail(function() {
-                // error
-            });
+    //         }).fail(function() {
+    //             // error
+    //         });
 
-        });
-    };
+    //     });
+    // };
 
 
     LoadMore.prototype.auto = function() {
@@ -1881,44 +1881,44 @@
                     self.numberOfClicks++;
 
                     // perform ajax request
-                    $.ajax({
-                            url: t.loadMore.attr('href'),
-                            type: 'GET',
-                            dataType: 'HTML',
-                            cache: true
-                        })
-                        .done(function(result) {
-                            var items, itemsNext;
+                    // $.ajax({
+                    //         url: t.loadMore.attr('href'),
+                    //         type: 'GET',
+                    //         dataType: 'HTML',
+                    //         cache: true
+                    //     })
+                    //     .done(function(result) {
+                    //         var items, itemsNext;
 
-                            // find current container
-                            items = $(result).filter(function() {
-                                return $(this).is('div' + '.cbp-loadMore-block' + self.numberOfClicks);
-                            });
+                    //         // find current container
+                    //         items = $(result).filter(function() {
+                    //             return $(this).is('div' + '.cbp-loadMore-block' + self.numberOfClicks);
+                    //         });
 
-                            t.parent.$obj.cubeportfolio('appendItems', items.html(), function() {
-                                // check if we have more works
-                                itemsNext = $(result).filter(function() {
-                                    return $(this).is('div' + '.cbp-loadMore-block' + (self.numberOfClicks + 1));
-                                });
+                    //         t.parent.$obj.cubeportfolio('appendItems', items.html(), function() {
+                    //             // check if we have more works
+                    //             itemsNext = $(result).filter(function() {
+                    //                 return $(this).is('div' + '.cbp-loadMore-block' + (self.numberOfClicks + 1));
+                    //             });
 
-                                if (itemsNext.length === 0) {
-                                    t.loadMore.addClass('cbp-l-loadMore-stop');
+                    //             if (itemsNext.length === 0) {
+                    //                 t.loadMore.addClass('cbp-l-loadMore-stop');
 
-                                    // remove events
-                                    self.window.off('scroll.loadMoreObject');
-                                    t.parent.$obj.off('filterComplete.cbp');
-                                } else {
-                                    // make the job inactive
-                                    self.isActive = false;
+                    //                 // remove events
+                    //                 self.window.off('scroll.loadMoreObject');
+                    //                 t.parent.$obj.off('filterComplete.cbp');
+                    //             } else {
+                    //                 // make the job inactive
+                    //                 self.isActive = false;
 
-                                    self.window.trigger('scroll.loadMoreObject');
-                                }
-                            });
-                        })
-                        .fail(function() {
-                            // make the job inactive
-                            self.isActive = false;
-                        });
+                    //                 self.window.trigger('scroll.loadMoreObject');
+                    //             }
+                    //         });
+                    //     })
+                    //     .fail(function() {
+                    //         // make the job inactive
+                    //         self.isActive = false;
+                    //     });
                 }
             }).init();
         });
